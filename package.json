@@ -1,0 +1,25 @@
+{
+  "name": "lesson_5.1.2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artichokeee/lesson_5.1.2.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artichokeee/lesson_5.1.2/issues"
+  },
+  "homepage": "https://github.com/artichokeee/lesson_5.1.2#readme",
+  "devDependencies": {
+    "cypress": "^13.6.0"
+  }
+}
