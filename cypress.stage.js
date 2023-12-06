@@ -4,11 +4,11 @@ module.exports = defineConfig({
   projectId: "pvv2d9",
   watchForFileChanges: false,
   e2e: {
-    baseUrl: "https://sqlverifier-live-6e21ca0ed768.herokuapp.com",
+    baseUrl: "https://sqlverifier-staging-08050d656f7a.herokuapp.com",
     setupNodeEvents(on, config) {},
   },
   "env": {
-    "LOGIN": "natus",
+    "LOGIN": "panel",
     "PASSWORD": "123456"
   }
 });
