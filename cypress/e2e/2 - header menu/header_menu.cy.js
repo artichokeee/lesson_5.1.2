@@ -79,6 +79,7 @@ describe("the redirection after clicking header's menu elements", () => {
     cy.get(
       "#header-tabs > li.dropdown.show.nav-item > div > button:nth-child(2)"
     ).click();
+    cy.wait(1000);
     cy.get("#header-tabs > li:nth-child(4) > a > span").click();
     cy.get(
       "#header-tabs > li.dropdown.show.nav-item > div > button:nth-child(1)"
