@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy:open":"npx cypress open",
-    "cy:run":"npx cypress run",
-    "cy:config":"npx cypress run --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
-    "cy:stage":"npx cypress run --config-file cypress.stage.js --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
-    "cy:chrome": "npx cypress run --config-file cypress.config.js --browser chrome",
-    "cy:electron": "npx cypress run --config-file cypress.stage.js --browser electron",
-    "cy:chrome1": "npm run cy:chrome -- --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
-    "cy:electron1": "npm run cy:electron -- --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19"
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "cy:dev_dash": "npx cypress run --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
+    "cy:stage_dash": "npx cypress run --config-file cypress.stage.js --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
+    "cy:dev:chrome": "npx cypress run --config-file cypress.config.js --browser chrome",
+    "cy:stage:electron": "npx cypress run --config-file cypress.stage.js --browser electron",
+    "cy:dev_dash:chrome": "npm run cy:dev:chrome -- --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
+    "cy:stage_dash:electron": "npm run cy:stage:electron -- --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19"
   },
   "repository": {
     "type": "git",
