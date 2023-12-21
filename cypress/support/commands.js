@@ -36,13 +36,9 @@ Cypress.Commands.add("clearText", (selector) => {
   cy.get(selector).clear();
 });
 
-Cypress.Commands.add("checkText", (selector, text) => {
-  cy.get(selector).should("have.text", text);
-});
-
-Cypress.Commands.add("checkElement", (selector) => {
-  cy.get(selector).should("be.visible");
-});
+// Cypress.Commands.add("checkElement", (selector) => {
+//   cy.get(selector).should("be.visible");
+// });
 
 Cypress.Commands.add("checkUrl", (text) => {
   const baseUrl = Cypress.config("baseUrl");
@@ -55,4 +51,39 @@ Cypress.Commands.add("checkClass", (selector, classValue) => {
 
 Cypress.Commands.add("checkCSS", (selector, property, value) => {
   cy.get(selector).should("have.css", property, value);
+});
+
+Cypress.Commands.add("checkTextUrl", (menu, subMenu, text, endpoint) => {
+  const baseUrl = Cypress.config("baseUrl");
+  cy.contains(menu).click();
+  cy.contains(subMenu).click();
+  cy.contains(text).should("be.visible");
+  cy.url().should("eq", baseUrl + endpoint);
+});
+
+Cypress.Commands.add("checkTextUrl", (menu, subMenu, text, endpoint) => {
+  const baseUrl = Cypress.config("baseUrl");
+  cy.contains(menu).click();
+  cy.contains(subMenu).click();
+  cy.contains(text).should("be.visible");
+  cy.url().should("eq", baseUrl + endpoint);
+});
+
+Cypress.Commands.add("checkText", (selector, text) => {
+  cy.get(selector).should("have.text", text);
+});
+
+Cypress.Commands.add("clickElement", (element) => {
+  cy.contains(element).click();
+});
+
+Cypress.Commands.add("login", () => {
+  cy.visit("/");
+  cy.clickElement("Account");
+  cy.clickElement("Sign in");
+  cy.get("#username").type(Cypress.env("LOGIN"));
+  cy.get("#password").type(Cypress.env("PASSWORD"));
+  cy.get(
+    "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
+  ).click();
 });

@@ -48,14 +48,14 @@ describe("Checks For Login", () => {
     );
   });
 
-  it.only("redirection to 'forget your password' page", () => {
+  it("redirection to 'forget your password' page", () => {
     cy.clickElement(
       "#login-page > div > form > div.modal-body > div:nth-child(3) > a > span"
     );
     cy.checkUrl("/account/reset/request");
   });
 
-  it.only("redirection to 'registration' page", () => {
+  it("redirection to 'registration' page", () => {
     cy.clickElement(
       "#login-page > div > form > div.modal-body > div:nth-child(4) > a > span"
     );
