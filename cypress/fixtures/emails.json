@@ -1,0 +1,46 @@
+[
+  [
+    {
+      "email": "test@test.com",
+      "exp": "is-valid"
+    },
+    {
+      "email": "test1@test.com",
+      "exp": "is-valid"
+    },
+    {
+      "email": "_test@test.com",
+      "exp": "is-valid"
+    },
+    {
+      "email": "test-test@test.com",
+      "exp": "is-valid"
+    }
+  ],
+  [
+    {
+      "email": ".test@test.com",
+      "exp": "is-invalid"
+    },
+    {
+      "email": "test@@test.com",
+      "exp": "is-invalid"
+    },
+    {
+      "email": "111fff55",
+      "exp": "is-invalid"
+    },
+    {
+      "email": " ",
+      "exp": "is-invalid"
+    },
+    {
+      "email": "test@test",
+      "exp": "is-invalid"
+    },
+    {
+      "email": "test.com",
+      "exp": "is-invalid"
+    }
+  ]
+]

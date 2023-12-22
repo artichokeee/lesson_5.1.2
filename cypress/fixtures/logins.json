@@ -1,1 +1,56 @@
-["12345", "ffff", "111fff55", "admin", "%%%jjdf"]
+[
+  [
+    {
+      "login": "12345",
+      "exp": "Failed to sign in! Please check your credentials and try again."
+    },
+    {
+      "login": "ffff",
+      "exp": "Failed to sign in! Please check your credentials and try again."
+    },
+    {
+      "login": "111fff55",
+      "exp": "Failed to sign in! Please check your credentials and try again."
+    },
+    {
+      "login": "admin",
+      "exp": "Failed to sign in! Please check your credentials and try again."
+    },
+    {
+      "login": "%%%jjdf",
+      "exp": "Failed to sign in! Please check your credentials and try again."
+    }
+  ],
+  [
+    {
+      "login": "test",
+      "exp": "is-valid"
+    },
+    {
+      "login": "1111",
+      "exp": "is-valid"
+    },
+    {
+      "login": "test1111",
+      "exp": "is-valid"
+    }
+  ],
+  [
+    {
+      "login": " ",
+      "exp": "is-invalid"
+    },
+    {
+      "login": "$$$",
+      "exp": "is-invalid"
+    },
+    {
+      "login": "test1111$$$$",
+      "exp": "is-invalid"
+    },
+    {
+      "login": " test ",
+      "exp": "is-invalid"
+    }
+  ]
+]

@@ -1,8 +1,6 @@
-const passwordData = require("../")
-
 describe("the redirection after clicking header's menu elements", () => {
   beforeEach(() => {
-    cy.validLogin();
+    cy.login(Cypress.env("LOGIN"), Cypress.env("PASSWORD"));
   });
 
   it('redirection to task page after clicking "Task" button', () => {
