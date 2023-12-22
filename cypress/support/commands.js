@@ -24,14 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("clickElement", (selector) => {
-  cy.get(selector).click();
-});
-
-Cypress.Commands.add("enterText", (selector, text) => {
-  cy.get(selector).type(`${text}{enter}`);
-});
-
 Cypress.Commands.add("clearText", (selector) => {
   cy.get(selector).clear();
 });
@@ -39,6 +31,10 @@ Cypress.Commands.add("clearText", (selector) => {
 // Cypress.Commands.add("checkElement", (selector) => {
 //   cy.get(selector).should("be.visible");
 // });
+
+Cypress.Commands.add("clickElement", (selector) => {
+  cy.get(selector).click();
+});
 
 Cypress.Commands.add("checkUrl", (text) => {
   const baseUrl = Cypress.config("baseUrl");
@@ -77,13 +73,37 @@ Cypress.Commands.add("clickElement", (element) => {
   cy.contains(element).click();
 });
 
-Cypress.Commands.add("login", () => {
-  cy.visit("/");
-  cy.clickElement("Account");
-  cy.clickElement("Sign in");
+Cypress.Commands.add("validLogin", () => {
+  cy.visit("/login");
   cy.get("#username").type(Cypress.env("LOGIN"));
   cy.get("#password").type(Cypress.env("PASSWORD"));
   cy.get(
     "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
   ).click();
+});
+
+Cypress.Commands.add("invalidLogin", (username) => {
+  cy.visit("/login");
+  cy.get("#password").type(Cypress.env("password"));
+  cy.get("#username").type(username);
+  cy.get(
+    "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
+  ).click();
+});
+
+Cypress.Commands.add("invalidPassword", () => {
+  const inputField = "Password";
+  cy.visit("/login");
+  cy.get("#username").type(Cypress.env("LOGIN"));
+
+  passwordData.forEach((item) => {
+    cy.enterText(inputField, item);
+    cy.get(
+      "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
+    ).click();
+  });
+});
+
+Cypress.Commands.add("enterText", (selector, text) => {
+  cy.get(selector).type(`${text}{enter}`);
 });

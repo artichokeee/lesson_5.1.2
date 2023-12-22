@@ -29,6 +29,6 @@
   "homepage": "https://github.com/artichokeee/lesson_5.1.2#readme",
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
-    "cypress": "^13.6.0"
+    "cypress": "^13.6.1"
   }
 }

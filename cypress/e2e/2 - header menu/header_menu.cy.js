@@ -1,6 +1,8 @@
+const passwordData = require("../")
+
 describe("the redirection after clicking header's menu elements", () => {
   beforeEach(() => {
-    cy.login();
+    cy.validLogin();
   });
 
   it('redirection to task page after clicking "Task" button', () => {
