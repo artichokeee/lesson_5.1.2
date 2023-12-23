@@ -12,11 +12,15 @@ describe("Checks For Login", () => {
   });
 
   it("unsuccessful login with invalid username", () => {
-    cy.invalidLogin(loginData);
+    loginData[0].forEach((item) => {
+      cy.invalidLogin(item);
+    });
   });
 
   it("unsuccessful login with invalid password", () => {
-    cy.invalidLogin(passwordData);
+    passwordData[0].forEach((item) => {
+      cy.invalidPassword(item);
+    });
   });
 
   it("unsuccessful login with empty fields", () => {

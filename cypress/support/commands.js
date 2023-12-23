@@ -65,21 +65,16 @@ Cypress.Commands.add("clickElement", (element) => {
   cy.contains(element).click();
 });
 
-Cypress.Commands.add("checkTextUrl", (menu, subMenu, text, endpoint) => {
-  const baseUrl = Cypress.config("baseUrl");
-  cy.contains(menu).click();
-  cy.contains(subMenu).click();
-  cy.contains(text).should("be.visible");
-  cy.url().should("eq", baseUrl + endpoint);
-});
-
-// Cypress.Commands.add("checkTextUrl", (menu, subMenu, text, endpoint) => {
-//   const baseUrl = Cypress.config("baseUrl");
-//   cy.contains(menu).click();
-//   cy.contains(subMenu).click();
-//   cy.contains(text).should("be.visible");
-//   cy.url().should("eq", baseUrl + endpoint);
-// });
+Cypress.Commands.add(
+  "checkRedirection",
+  (headerElement1, headerElement2, text, endpoint) => {
+    const baseUrl = Cypress.config("baseUrl");
+    cy.contains(headerElement1).click();
+    cy.contains(headerElement2).click();
+    cy.contains(text).should("be.visible");
+    cy.url().should("eq", baseUrl + endpoint);
+  }
+);
 
 Cypress.Commands.add("login", (login, password) => {
   cy.visit("/login");
@@ -90,29 +85,25 @@ Cypress.Commands.add("login", (login, password) => {
   ).click();
 });
 
-Cypress.Commands.add("invalidLogin", (array) => {
+Cypress.Commands.add("invalidLogin", (item) => {
   const loginField = "#username";
-  array[0].forEach((item) => {
-    cy.visit("/login");
-    cy.get("#password").type(Cypress.env("PASSWORD"));
-    cy.enterText(loginField, item.login);
-    cy.get(
-      "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
-    ).click();
-    cy.contains(item.exp).should("be.visible");
-  });
+  cy.visit("/login");
+  cy.get("#password").type(Cypress.env("PASSWORD"));
+  cy.enterText(loginField, item.login);
+  cy.get(
+    "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
+  ).click();
+  cy.contains(item.exp).should("be.visible");
+});
 
-  Cypress.Commands.add("invalidPassword", (array) => {
-    const passwordField = "#password";
-    array[0].forEach((item) => {
-      cy.visit("/login");
-      cy.get("#username").type(Cypress.env("LOGIN"));
-      cy.enterText(passwordField, item.password);
-      cy.get(
-        "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
-      ).click();
-      cy.contains(item.exp).should("be.visible");
-      cy.clearText(passwordField);
-    });
-  });
+Cypress.Commands.add("invalidPassword", (item) => {
+  const passwordField = "#password";
+  cy.visit("/login");
+  cy.get("#username").type(Cypress.env("LOGIN"));
+  cy.enterText(passwordField, item.password);
+  cy.get(
+    "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
+  ).click();
+  cy.contains(item.exp).should("be.visible");
+  cy.clearText(passwordField);
 });
