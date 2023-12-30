@@ -9,5 +9,8 @@ module.exports = defineConfig({
   env: {
     LOGIN: "natus1",
     PASSWORD: "123456",
+    baseUrl: "https://sqlverifier-live-6e21ca0ed768.herokuapp.com",
+    adminLogin: "admin",
+    adminPassword: "admin",
   },
 });
