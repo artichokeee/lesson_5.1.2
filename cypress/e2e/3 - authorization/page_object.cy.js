@@ -37,6 +37,7 @@ describe.only("Verifier - Login UI", () => {
 
     cy.visit("/account/login");
     changePasswordPage.changePassword(username, newPassword, oldPassword);
+    cy.wait(5000);
     cy.logout();
   });
 });
