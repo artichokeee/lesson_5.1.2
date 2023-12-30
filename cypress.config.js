@@ -7,7 +7,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {},
   },
   env: {
-    LOGIN: "natus",
+    LOGIN: "natus1",
     PASSWORD: "123456",
   },
 });

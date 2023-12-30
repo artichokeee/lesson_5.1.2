@@ -107,3 +107,8 @@ Cypress.Commands.add("invalidPassword", (item) => {
   cy.contains(item.exp).should("be.visible");
   cy.clearText(passwordField);
 });
+
+Cypress.Commands.add("logout", () => {
+  cy.contains("Account").click();
+  cy.contains("Sign out").click();
+});

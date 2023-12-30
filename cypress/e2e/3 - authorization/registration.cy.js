@@ -4,8 +4,6 @@ const emailData = require("../../fixtures/emails.json");
 const passwordData = require("../../fixtures/passwords.json");
 const registrationData = require("../../fixtures/registration.json");
 
-console.log(passwordData[1][0].css);
-
 beforeEach(() => {
   cy.visit("/account/register");
 });
