@@ -24,6 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+const loginPageElements = require("../../fixtures/pages/loginPageSelectors.json");
+const changePasswordElements = require("../../fixtures/pages/changePasswordSelectors.json");
+
 Cypress.Commands.add("register", (login, email, password1, password2) => {
   cy.enterText("#username", login);
   cy.enterText("#email", email);
@@ -78,8 +81,8 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("login", (login, password) => {
   cy.visit("/login");
-  cy.get("#username").type(login);
-  cy.get("#password").type(password);
+  cy.get(loginPageElements.loginField).type(login);
+  cy.get(loginPageElements.passwordField).type(password);
   cy.get(
     "#login-page > div > form > div.modal-footer > button.btn.btn-primary > span"
   ).click();
@@ -111,4 +114,16 @@ Cypress.Commands.add("invalidPassword", (item) => {
 Cypress.Commands.add("logout", () => {
   cy.contains("Account").click();
   cy.contains("Sign out").click();
+});
+
+Cypress.Commands.add("changePassword", (username, oldPassword, newPassword) => {
+  cy.get(loginPageElements.loginField).type(username);
+  cy.get(loginPageElements.passwordField).type(oldPassword);
+  cy.get(loginPageElements.loginButton).click();
+  cy.get(changePasswordElements.accountMenu).click();
+  cy.get(changePasswordElements.passwordMenu).click();
+  cy.get(changePasswordElements.currentPasswordField).type(oldPassword);
+  cy.get(changePasswordElements.newPasswordField).type(newPassword);
+  cy.get(changePasswordElements.newPasswordFieldConfirmation).type(newPassword);
+  cy.get(changePasswordElements.saveButton).click();
 });
