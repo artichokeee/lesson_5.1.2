@@ -5,14 +5,20 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "npx cypress open",
-    "cy:run": "npx cypress run",
-    "cy:dev_dash": "npx cypress run --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
-    "cy:stage_dash": "npx cypress run --config-file cypress.stage.js --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
-    "cy:dev:chrome": "npx cypress run --config-file cypress.config.js --browser chrome",
-    "cy:stage:electron": "npx cypress run --config-file cypress.stage.js --browser electron",
+    "cy:run": "cypress run",
+    "cy:dev_dash": "cypress run --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
+    "cy:stage_dash": "cypress run --config-file cypress.stage.js --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
+    "cy:dev:chrome": "cypress run --config-file cypress.config.js --browser chrome",
+    "cy:stage:electron": "cypress run --config-file cypress.stage.js --browser electron",
     "cy:dev_dash:chrome": "npm run cy:dev:chrome -- --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
     "cy:stage_dash:electron": "npm run cy:stage:electron -- --record --key 2fb951a9-e7cc-4c4a-a0c2-f170bf08de19",
-    "cy:dev_stage_dash:chrome:electron": "npm run cy:dev_dash:chrome && npm run cy:stage_dash:electron"
+    "cy:dev_stage_dash:chrome:electron": "npm run cy:dev_dash:chrome && npm run cy:stage_dash:electron",
+    "cy:run:cloud": "cypress run --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
+    "cy:spec1": "cypress run --spec 'cypress/e2e/3 - authorization/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
+    "cy:spec2": "cypress run --spec 'cypress/e2e/2 - header menu/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
+    "cy:nokey": "npm run cy:spec1 & npm run cy:spec2",
+    "cy:dash": "npm run cy:spec1 & npm run cy:spec2",
+    "cy:parallel": "npm run cy:spec1 --config-file cypress.laptop.js  -- --browser chrome --group chromeLaptop --ci-build-id 5 --parallel & npm run cy:spec2 --config-file cypress.monitor.js -- --browser electron --group electronMonitor --ci-build-id 5 --parallel"
   },
   "repository": {
     "type": "git",
