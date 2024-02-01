@@ -55,13 +55,12 @@ describe("Lesson 4.2.1 - Tasks API Tests", () => {
         Authorization: `Bearer ${Cypress.env("accessToken")}`,
       },
       body: {
-        id: faker.number.int({ min: 0, max: 9999 }),
         text: faker.lorem.sentence(),
         answer: faker.lorem.words(),
         title: faker.lorem.sentence(),
       },
     }).then((response) => {
-      expect(response.status).to.eq(200);
+      expect(response.status).to.eq(201);
       expect(response.body).to.have.property("id").and.to.be.a("number");
       expect(response.body).to.have.property("text").and.to.be.a("string");
       expect(response.body).to.have.property("answer").and.to.be.a("string");
@@ -198,7 +197,7 @@ describe("Lesson 4.2.1 - Tasks API Tests", () => {
         Authorization: `Bearer ${Cypress.env("accessToken")}`,
       },
     }).then((response) => {
-      expect(response.status).to.eq(200);
+      expect(response.status).to.eq(204);
     });
   });
 });
