@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="5.157" tests="11" failures="2">
+  <testsuite name="Root Suite" timestamp="2024-02-04T16:52:21" tests="0" file="cypress/e2e/4 - api/tasks.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Lesson 4.2.1 - Tasks API Tests" timestamp="2024-02-04T16:52:21" tests="11" time="5.146" failures="2">
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Get a list of tasks" time="1.080" classname="Get a list of tasks">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Get an info about task" time="0.338" classname="Get an info about task">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Create a Task" time="0.000" classname="Create a Task">
+      <failure message="admin is not defined" type="ReferenceError"><![CDATA[ReferenceError: admin is not defined
+    at Context.eval (webpack://lesson_5.1.2/./cypress/e2e/4 - api/tasks.cy.js:58:14)]]></failure>
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Create a Task without body" time="0.354" classname="Create a Task without body">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Update a Task" time="0.000" classname="Update a Task">
+      <failure message="expected 200 to equal 300" type="AssertionError"><![CDATA[AssertionError: expected 200 to equal 300
+    at Context.eval (webpack://lesson_5.1.2/./cypress/e2e/4 - api/tasks.cy.js:98:33)
+
+      + expected - actual
+
+      -200
+      +300
+      ]]></failure>
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Update a Task without body" time="0.442" classname="Update a Task without body">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Update a text of task" time="0.335" classname="Update a text of task">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Update an answer of task" time="0.466" classname="Update an answer of task">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Update a title of task" time="0.339" classname="Update a title of task">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Update a task without body" time="0.348" classname="Update a task without body">
+    </testcase>
+    <testcase name="Lesson 4.2.1 - Tasks API Tests Delete a Task" time="0.425" classname="Delete a Task">
+    </testcase>
+  </testsuite>
+</testsuites>

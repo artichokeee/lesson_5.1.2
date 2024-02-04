@@ -133,3 +133,5 @@ dist
 ._*
 
 *.war
+
+jira-credentials.json
