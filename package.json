@@ -15,11 +15,17 @@
     "cy:stage_dash:electron": "npm run cy:stage:electron -- --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
     "cy:dev_stage_dash:chrome:electron": "npm run cy:dev_dash:chrome && npm run cy:stage_dash:electron",
     "cy:run:cloud": "cypress run --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
-    "cy:spec1": "cypress run --spec 'cypress/e2e/3 - authorization/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
+    "cy:spec1": "cypress run --spec 'cypress/e2e/1 - verifier/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
     "cy:spec2": "cypress run --spec 'cypress/e2e/2 - header menu/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
+    "cy:spec3": "cypress run --spec 'cypress/e2e/3 - authorization/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
+    "cy:spec4": "cypress run --spec 'cypress/e2e/4 - api/*' --record --key 7f8b0f8a-dfaa-4e09-b154-d20485f64044",
     "cy:nokey": "npm run cy:spec1 & npm run cy:spec2",
     "cy:dash": "npm run cy:spec1 & npm run cy:spec2",
-    "cy:parallel": "npm run cy:spec1 --config-file cypress.laptop.js  -- --browser chrome --group chromeLaptop --ci-build-id 5 --parallel & npm run cy:spec2 --config-file cypress.monitor.js -- --browser electron --group electronMonitor --ci-build-id 5 --parallel"
+    "cy:parallel:spec1": "npm run cy:spec1 -- --group spec1 --ci-build-id $BUILD_ID --parallel",
+    "cy:parallel:spec2": "npm run cy:spec2 -- --group spec2 --ci-build-id $BUILD_ID --parallel",
+    "cy:parallel:spec3": "npm run cy:spec3 -- --group spec3 --ci-build-id $BUILD_ID --parallel",
+    "cy:parallel:spec4": "npm run cy:spec4 -- --group spec4 --ci-build-id $BUILD_ID --parallel",
+    "cy:parallel": "concurrently \"npm run cy:parallel:spec1\" \"npm run cy:parallel:spec2\" \"npm run cy:parallel:spec3\" \"npm run cy:parallel:spec4\""
   },
   "repository": {
     "type": "git",
@@ -36,6 +42,7 @@
   "homepage": "https://github.com/artichokeee/lesson_5.1.2#readme",
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
+    "concurrently": "^8.2.2",
     "cypress": "^13.6.1",
     "mocha-junit-reporter": "^2.2.1"
   }
